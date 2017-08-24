@@ -24,10 +24,10 @@ io.on('connection', function (socket) {
     console.log('A user connected with #id ' + socket.id);
 
     // handle chat messages
-    socket.on('chat message', function (message) {
-
+    socket.on('chat message', function (data) {
+        console.log(data);
         // send message to client
-        io.emit('chat message', socket.id + ' said: ' + message, { for: 'everyone' });
+        io.emit('chat message', data, { for: 'everyone' });
     });
 
     // handle typing
