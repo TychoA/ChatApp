@@ -1,0 +1,59 @@
+doctype html
+html
+    head
+        title A Socket.IO chat application
+        script(src="/public/thirdparty/jquery-3.2.1.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js")
+
+    body
+
+        h1 Welcome to this chat application
+        p Powered by Node.js, Express, and Socket.IO.
+
+        div.messages
+
+        form
+            p
+            input#message
+            button Send message
+
+        script.
+            // init client-side socket
+            var socket = io();
+
+            // listen to input
+            $('form').on('submit', function (e) {
+
+                // prevent default behavior
+                e.preventDefault();
+
+                // get input value
+                var input = $('input').val();
+
+                // send to socket
+                socket.emit('chat message', input);
+
+                // remove some message
+                $('form').find('p').empty();
+            });
+
+            // listen to typing
+            $('#message').on('keyup', function () {
+                console.log('change');
+                // send to socket
+                socket.emit('user typing');
+            });
+
+            // listen to messages
+            socket.on('chat message', function (message) {
+
+                // append message to the dom
+                $('<p>').text(message).appendTo('.messages');
+            });
+
+            // listen to typing
+            socket.on('user typing', function (message) {
+
+                // notify user
+                $('form').find('p').text(message);
+            });
