@@ -1,0 +1,40 @@
+{
+  "name": "chatapp",
+  "version": "1.0.0",
+  "description": "a simple chat app experiment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TychoA/ChatApp.git"
+  },
+  "keywords": [
+    "chat",
+    "node",
+    "socket.io"
+  ],
+  "author": "tycho atsma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TychoA/ChatApp/issues"
+  },
+  "homepage": "https://github.com/TychoA/ChatApp#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "grunt": "^1.0.1",
+    "pug": "^2.0.0-rc.3",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "grunt-babel": "^7.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.0.1",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}
